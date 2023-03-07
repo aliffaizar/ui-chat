@@ -20,8 +20,13 @@ export function MainLayout() {
   useEffect(() => {
     if (user?.role === 'agent') {
       socket.on('inviteAgent', (invitation) => {
-        setInvitation(invitation)
-        setIsInvited(true)
+        if (invitation.status === 'accepted') {
+          setInvitation(invitation.roomId)
+          setIsInvited(false)
+        } else {
+          setInvitation(invitation.roomId)
+          setIsInvited(true)
+        }
       })
     }
     if (user?.role !== 'agent') {

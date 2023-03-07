@@ -17,7 +17,11 @@ export function ModalInvitation({
   const navigate = useNavigate()
   const user = JSON.parse(localStorage.getItem('user') || '{}')
   const handleAccept = () => {
-    socket.emit('acceptInvitation', { roomId, userId: user.id })
+    socket.emit('acceptInvitation', {
+      roomId,
+      userId: user.id,
+      status: 'accepted',
+    })
     navigate(`/chats/${roomId}`)
     onClose()
   }

@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { io } from 'socket.io-client'
 import { useUser } from '../hooks/useUser'
-import { Chat, Message, User } from '../interfaces/Interfaces'
+import { Chat, Message } from '../interfaces/Interfaces'
 
 const socket = io(import.meta.env.VITE_API)
 
